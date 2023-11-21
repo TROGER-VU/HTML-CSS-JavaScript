@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Password Manager App</div>
+        <ul class="navbar">
+            <li class="navbar-menu">Home</li>
+            <li class="navbar-menu">Contact</li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Your Password History</h1>
+        <table class="table">
+            
+            <tr>
+                <td>fb.com</td>
+                <td>ayutro</td>
+                <td>12345</td>
+                <td>Delete</td>
+            </tr>
+        </table>
+        <h1>Save Your Password Details</h1>
+        <form action="/save" method="post">
+            <div class="form-label">
+                <label for="website">Website:</label>
+                <input class="form-input" type="text" id="website" name="website" required>
+            </div>
+            <div class="form-label">
+                <label for="username">Username:</label>
+                <input class="form-input" type="text" id="username" name="username" required>
+            </div>
+            <div class="form-label">
+                <label for="password">Password:</label>
+                <input class="form-input" type="password" id="password" name="password" required>
+            </div>
+            <button onclick="savePasswordDetails" class="save-btn" type="submit">Save</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

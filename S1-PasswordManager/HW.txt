@@ -1,0 +1,6 @@
+1. alert("copied")
+   Instead of this alert
+   symbol clipboard-->check
+
+2. Add Edit functionality
+   Save button

@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    font-family: "Poppins";
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    background: #3c11d6;
+}
+
+.container{
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 20px #000;
+}
+
+.wrapper{
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.text-input {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.to-text{
+    border-left: 1px solid #ccc;
+}
+
+textarea{
+    height: 250px;
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: 10px;
+    resize: none;
+    padding: 10px;
+    font-size: 18px;
+}
+
+textarea::placeholder{
+    color: #b7b7b7;
+}
+
+.controls, li, .icons,.icons i{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.controls .row .icons i{
+    width: 50px;
+    font-size: 16px;
+    color: #b7b7b7;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.controls .row .icons{
+
+}
+
+.controls {
+    list-style: none;
+}
+
+.controls .row.from .icons {
+    padding-right: 15px;
+    border-right: 1px solid #ccc;
+}
+
+.controls .row.to .icons {
+    padding-left: 15px;
+    border-left: 1px solid #ccc;
+}
+
+select{
+    color: #333;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: ;
+}
+
+button{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    background: #3c11d6;
+}
