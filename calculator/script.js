@@ -1,4 +1,6 @@
 const Solve = (char) => {
+    var sound = document.getElementById("audio");
+    sound.play();
     let display = document.getElementById("display");
     display.value += char;
 }
@@ -18,6 +20,7 @@ const Result = () => {
     try {
         display.value = eval(expression);
     } catch(err) {
+        display.value = "";
         let text = `Error! ${expression} is not a valid expression`;
         document.getElementById("error").value = "Enter a valid string."
     }
