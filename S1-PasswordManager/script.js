@@ -5,13 +5,15 @@ const hidePassword = (password) => {
     }
     return hiddenPassword;
 }
+
 const copyContent = (content) => {
     navigator.clipboard.writeText(content).then( () => {
         alert("Copied");
     }).catch(err => {
-        alert("Copy Failed");
+        alert("Coping Failed");
     });
 }
+
 const deletePasswordData = (index) => {
     let passwordDetails = localStorage.getItem("passwordDetails");
     let passwordData = JSON.parse(passwordDetails);
@@ -53,27 +55,29 @@ const editPasswordData = (index) => {
         <tr> 
                 <td id = "${i + "0"}" style="background-color: ${color};" ${editable}>${row.website}<i onClick="copyContent('${row.website}')" class="fa-regular fa-clipboard"></i></td>
                 <td id = "${i + "1"}" style="background-color: ${color};" ${editable}>${row.username}<i onClick="copyContent('${row.username}')" class="fa-regular fa-clipboard"></i></td>
-                <td id = "${i + "2"}" style="background-color: ${color};" ${editable}>${hidePassword(row.password)} <i class="fa-regular fa-clipboard"></i></td>
+                <td id = "${i + "2"}" style="background-color: ${color};" ${editable}>${hidePassword(row.password)} <i onCLick="copyContent('${row.password}')" class="fa-regular fa-clipboard"></i></td>
                 <td style="background-color: ${color};">
                 <button class="delete-btn" onClick="deletePasswordData('${i}')">Delete</button>
-               <button class="delete-btn" onClick="deletePasswordData('${i}')">Edit</button>
-               <button class="delete-btn" onClick="deletePasswordData('${i}')">Save</button>
+                <button class="edit-btn" onClick="editPasswordData('${i}')">Edit</button>
+                <button class="update-btn" onClick="updatePasswordData('${i}')">Update</button>
             </td>
         </tr>
         `;
      }
     table.innerHTML = table.innerHTML + html;
 }
+
 const updatePassword = (index) => {
-    const websiteData = document.getElementById(index + "0");
-    const usernameData = document.getElementById(index + "1");
-    const passwordData = document.getElementById(index + "2");
+    const websiteData = document.getElementById(index + "0").innerText;
+    const usernameData = document.getElementById(index + "1").innerText;
+    const passwordData = document.getElementById(index + "2").innerText;
 
     console.log(websiteData, usernameData, passwordData);
 
     populateSavePasswordDetails();
 
 }
+
 const populateSavePasswordDetails = () => {
     let table = document.querySelector("table")
     let passwordDetails = localStorage.getItem("passwordDetails");
@@ -102,11 +106,11 @@ const populateSavePasswordDetails = () => {
             <tr>
                 <td id = "${i + "0"}" style="background-color: ${color};">${row.website}<i onClick="copyContent('${row.website}')" class="fa-regular fa-clipboard"></i></td>
                 <td id = "${i + "1"}" style="background-color: ${color};">${row.username}<i onClick="copyContent('${row.username}')" class="fa-regular fa-clipboard"></i></td>
-                <td id = "${i + "2"}" style="background-color: ${color};">${hidePassword(row.password)} <i class="fa-regular fa-clipboard"></i></td>
+                <td id = "${i + "2"}" style="background-color: ${color};" ${editable}>${hidePassword(row.password)} <i onCLick="copyContent('${row.password}')" class="fa-regular fa-clipboard"></i></td>
                 <td style="background-color: ${color};">
                     <button class="delete-btn" onClick="deletePasswordData('${i}')">Delete</button>
-                    <button class="delete-btn" onClick="deletePasswordData('${i}')">Edit</button>
-                    <button class="delete-btn" onClick="deletePasswordData('${i}')">Save</button>
+                    <button class="edit-btn" onClick="editPasswordData('${i}')">Edit</button>
+                    <button class="update-btn" onClick="updatePasswordData('${i}')">Update</button>
                 </td>
             </tr>
             `;
@@ -117,11 +121,6 @@ const populateSavePasswordDetails = () => {
 populateSavePasswordDetails();
 document.querySelector(".save-btn").addEventListener("click",(event)=>{
     event.preventDefault();
-
-    console.log("Website: ",website.value);
-    console.log("Username: ",username.value);
-    console.log("Password: ",password.value);
-
     let passwordDetails = localStorage.getItem("passwordDetails");
     if(passwordDetails == null){
         let passwordJSON = [];
