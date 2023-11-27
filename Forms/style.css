@@ -1,0 +1,59 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 100vh;
+}
+
+.input-group{
+    position: relative;
+}
+
+.input{
+    outline: none;
+    font-size: 22px;
+    height: 60px;
+    width: 100%;
+    border: 2px solid #a8a6a6;
+    padding: 2px 10px;
+    border-radius: 8px;
+}
+
+.label{
+    color: #a8a6a6;
+    transition: 250ms;
+    top: 15px;
+    left: 5px;
+    font-size: 18px;
+    padding: 0px 10px;
+    position: absolute;
+}
+
+.input:focus{
+    border: 2px solid #600ee4;
+}
+
+.input:is(:focus) ~ label {
+    transform: translateY(-80%) scale(0.8);
+    background-color: white;
+    color: #600ee4;
+    font-size: 25px;
+    padding-inline: 10px;
+}
+
+.submit-btn{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    background: #600ee4;
+}
